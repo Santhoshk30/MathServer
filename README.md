@@ -1,5 +1,5 @@
 # Ex.03 Design a Website for Server Side Processing
-## Date:
+## Date:15.11.2026
 
 ## AIM:
 To create a web page to calculate Churn Rate using server-side scripts.
@@ -42,13 +42,108 @@ Render the result to the HTML template.
 Publish the website in Localhost.
 
 ## PROGRAM:
+```
+math.html
 
+<html>
+<head>
+    <title>Churn Rate Calculator</title>
+</head>
+
+<body bgcolor="aqua">
+
+    <center>
+        <h1>Santhosh K</h1>
+        <h2>26016599</h2>
+
+        <h2>CHURN RATE CALCULATOR</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <label>INITIAL CUSTOMER:</label>
+            <input type="number" name="initial_cust"
+                   value="{{ l }}" min="0" step="any" required>
+
+            <br><br>
+
+            <label>PRESENT CUSTOMER:</label>
+            <input type="number" name="present_cust"
+                   value="{{ i }}" min="0" step="any" required>
+
+            <br><br>
+
+            <input type="submit" value="Calculate">
+
+            <br><br>
+
+            <label>CHURN RATE:</label>
+            <input type="text"
+                   value="{% if churnrate != None %}{{ churnrate|floatformat:2 }}%{% endif %}"
+                   readonly>
+
+            <br><br>
+
+
+        </form>
+    </center>
+
+</body>
+</html>
+
+views.py
+
+from django.shortcuts import render
+
+def churn_rate(request):
+    l = 0
+    i = 0
+    churnrate = None
+    error = ""
+
+    if request.method == "POST":
+        try:
+            l = float(request.POST.get('initial_cust') or 0)
+            i = float(request.POST.get('present_cust') or 0)
+
+            if l <= 0:
+                error = "Initial customers must be greater than zero."
+            elif i < 0:
+                error = "Present customers cannot be negative."
+            else:
+                churnrate = ((l - i) / l) * 100
+
+        except ValueError:
+            error = "Please enter valid numbers."
+
+    return render(
+        request,
+        'mathapp/math.html',
+        {
+            'l': l,
+            'i': i,
+            'churnrate': churnrate,
+            'error': error
+        }
+    )
+
+urls.py
+
+from django.contrib import admin
+from django.urls import path
+from mathapp import views
+
+urlpatterns = [
+    path('', views.churn_rate, name='churn_rate'),
+]
+
+```
 
 ## OUTPUT - SERVER SIDE:
-
+![alt text](image-1.png)
 
 ## OUTPUT - WEBPAGE:
-
+![alt text](image-2.png)
 
 ## RESULT:
 The the web page to calculate Churn Rate using server-side scripts is created successfully.
