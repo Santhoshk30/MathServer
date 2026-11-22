@@ -94,8 +94,8 @@ Publish the website in Localhost.
 ![alt text](image1.png)
 
 ## OUTPUT - WEBPAGE:
-
 ![alt text](image.png)
+
 
 ## RESULT:
 The the web page to calculate Churn Rate using server-side scripts is created successfully.
