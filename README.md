@@ -52,8 +52,8 @@ Publish the website in Localhost.
 <body bgcolor="Green 900">
 
     <center>
-        <h1>JOHN RYAN A</h1>
-        <h2>26008446</h2>
+        <h1>Santhosh K</h1>
+        <h2>26016599</h2>
 
         <h2>CHURN RATE CALCULATOR</h2>
 
