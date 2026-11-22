@@ -1,5 +1,5 @@
 """
-ASGI config for sandy project.
+ASGI config for mathapp project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'sandy.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mathapp.settings')
 
 application = get_asgi_application()
