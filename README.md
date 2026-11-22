@@ -94,6 +94,7 @@ Publish the website in Localhost.
 ![alt text](image1.png)
 
 ## OUTPUT - WEBPAGE:
+
 ![alt text](image.png)
 
 ## RESULT:
