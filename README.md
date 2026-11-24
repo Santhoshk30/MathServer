@@ -44,52 +44,27 @@ Publish the website in Localhost.
 ## PROGRAM:
 ```
 math.html
-
 <html>
-<head>
-    <title>Churn Rate Calculator</title>
-</head>
-
-<body bgcolor="aqua">
-
-    <center>
-        <h1>Santhosh K</h1>
-        <h2>26016599</h2>
-
-        <h2>CHURN RATE CALCULATOR</h2>
-
-        <form method="POST">
-            {% csrf_token %}
-
-            <label>INITIAL CUSTOMER:</label>
-            <input type="number" name="initial_cust"
-                   value="{{ l }}" min="0" step="any" required>
-
-            <br><br>
-
-            <label>PRESENT CUSTOMER:</label>
-            <input type="number" name="present_cust"
-                   value="{{ i }}" min="0" step="any" required>
-
-            <br><br>
-
-            <input type="submit" value="Calculate">
-
-            <br><br>
-
-            <label>CHURN RATE:</label>
-            <input type="text"
-                   value="{% if churnrate != None %}{{ churnrate|floatformat:2 }}%{% endif %}"
-                   readonly>
-
-            <br><br>
-
-
-        </form>
-    </center>
-
-</body>
+    <head>
+        <title>Churn rate
+            </title>
+        </head>
+        <body bgcolor="yellow">
+            <h1>Santhosh K</h1>
+            <h2>26016599</h2>
+            <form method="POST">
+            {%csrf_token %}<br><br>
+        <label>INITIAL CUSTOMER:</label>
+        <input type="number" name="initial_cust" value="{{l}}" ><br><br>
+        <label>PRESENT CUSTOMER:</label>
+        <input type="number" name="present_cust" value="{{i}}" ><br><br>
+        <input type="submit" value="Calculate"><br><br>
+        <label>CHURN RATE:</label>
+        <input type="number" value="{{churnrate}}"><br><br>
+            </form>
+        </body>
 </html>
+
  
 views.py
 
@@ -139,10 +114,10 @@ urlpatterns = [
 ```
 
 ## OUTPUT - SERVER SIDE:
-![alt text](image-1.png)
+![alt text](<Screenshot (42).png>)
 
 ## OUTPUT - WEBPAGE:
-![alt text](image-2.png)
+![alt text](<Screenshot (41).png>)
 
 
 ## RESULT:
